@@ -51,6 +51,15 @@ class script(object):
 2. make sure that your channel does not contains camrips, porn and fake files.
 3. Forward the last message to me with quotes.
  I'll add all the files in that channel to my db."""
+    CAPTION = """
+<b>📂 Fɪʟᴇ ɴᴀᴍᴇ : </b> {file_name}"""
+
+    IMDB_TEMPLATE_TXT = """
+<b>Query: {query}</b> \n‌‌‌‌IMDb Data:
+🏷 Title: <a href={url}>{title}</a>
+🎭 Genres: {genres}\n📆 Year: <a href={url}/releaseinfo>{year}</a>
+🌟 Rating: <a href={url}/ratings>{rating}</a> / 10"""
+    
     CONNECTION_TXT = """Help: <b>Connections</b>
 
 - Used to connect bot to PM for managing filters 
