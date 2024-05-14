@@ -404,9 +404,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('➕ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘs ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('〆 Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘs 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🔍 Sᴇᴀʀᴄʜ', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('∙ Sᴇᴀʀᴄʜ ∙', switch_inline_query_current_chat=''),
             InlineKeyboardButton('🕸️ Uᴘᴅᴀᴛᴇ ', url=UPDATE_CHANNEL)
             ],[
             InlineKeyboardButton('🎭 Hᴇʟᴘ 🎭', callback_data='help'),
@@ -421,14 +421,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer('Piracy Is Crime')
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('Manual Filter', callback_data='manuelfilter'),
-            InlineKeyboardButton('Auto Filter', callback_data='autofilter')
+            InlineKeyboardButton('Mᴀɴᴜᴀʟ Fɪʟᴛᴇʀ ', callback_data='manuelfilter'),
+            InlineKeyboardButton('Aᴜᴛᴏ Fɪʟᴛᴇʀ', callback_data='autofilter'),        
+            InlineKeyboardButton('Cᴏɴɴᴇᴄᴛɪᴏɴ', callback_data='coct'),
         ], [
-            InlineKeyboardButton('Connection', callback_data='coct'),
-            InlineKeyboardButton('Extra Mods', callback_data='extra')
+            InlineKeyboardButton('Extra Mods', callback_data='extra'),            
         ], [
-            InlineKeyboardButton('🏠 Home', callback_data='start'),
-            InlineKeyboardButton('🔮 Status', callback_data='stats')
+            InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),            
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -438,11 +437,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('Uᴘᴅᴀᴛᴇ ', url=UPDATE_CHANNEL),
-            InlineKeyboardButton('Sᴏᴜʀᴄᴇ', callback_data='source')
-        ], [
-            InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close_data')
+            InlineKeyboardButton('sᴛᴀᴛᴜs​', callback_data='stats'),
+            InlineKeyboardButton('sᴏᴜʀᴄᴇ​', callback_data='source')
+        ],[
+            InlineKeyboardButton('🛰 ʀᴇɴᴅᴇʀɪɴɢ ɪɴꜰᴏ ☁️', callback_data='rendering_info')
+        ],[            
+            InlineKeyboardButton('© ᴅɪsᴄʟᴀɪᴍᴇʀ​ ©', callback_data='dics_btn')
+        ],[
+            InlineKeyboardButton('♙ ʜᴏᴍᴇ', callback_data='start'),
+            InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -453,7 +456,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "source":
         buttons = [[
             InlineKeyboardButton('Rᴇᴘᴏ', url="https://github.com/Mishel-Tg/AutoFilterBot"),
-            InlineKeyboardButton('Bᴀᴄᴋ', callback_data='about')
+            InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
