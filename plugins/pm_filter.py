@@ -641,7 +641,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         if str(grp_id) != str(grpid):
             await query.message.edit("Your Active Connection Has Been Changed. Go To /settings.")
-            return await query.answer('Piracy Is Crime')
+            return await query.answer(MSG_ALRT)
 
         if status == "True":
             await save_group_settings(grpid, set_type, False)
@@ -653,18 +653,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if settings is not None:
             buttons = [
                 [
-                    InlineKeyboardButton('Filter Button',
+                    InlineKeyboardButton('Fɪʟᴛᴇʀ Bᴜᴛᴛᴏɴ',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('Single' if settings["button"] else 'Double',
+                    InlineKeyboardButton('Sɪɴɢʟᴇ' if settings["button"] else 'Double',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('Bot PM', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('Bᴏᴛ PM', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
                     InlineKeyboardButton('✅ Yes' if settings["botpm"] else '❌ No',
                                          callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('File Secure',
+                    InlineKeyboardButton('Fɪʟᴇ Sᴇᴄᴜʀᴇ',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}'),
                     InlineKeyboardButton('✅ Yes' if settings["file_secure"] else '❌ No',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}')
@@ -684,11 +684,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('Welcome', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
                     InlineKeyboardButton('✅ Yes' if settings["welcome"] else '❌ No',
                                          callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
+                ],
+                [
+                    InlineKeyboardButton('Auto Delete',
+                                         callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('10 Mins' if settings["auto_delete"] else 'OFF',
+                                         callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{str(grp_id)}')
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer('Piracy Is Crime')
+    await query.answer(MSG_ALRT)
 
 
 async def auto_filter(client, msg, spoll=False):
