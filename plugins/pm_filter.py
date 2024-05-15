@@ -444,7 +444,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
         await query.answer('Piracy Is Crime')
-     elif query.data == "help":
+    elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('Fɪʟᴛᴇʀs ', callback_data='filter'),
         ], [
