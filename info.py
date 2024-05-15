@@ -44,6 +44,7 @@ SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'xbotsupports')
 UPDATE_CHANNEL = environ.get('UPDATE_CHANNEL', 'https://t.me/botuptest') # add here your update channel link
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
+AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "False")), False)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
