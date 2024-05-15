@@ -59,6 +59,10 @@ class script(object):
 🏷 Title: <a href={url}>{title}</a>
 🎭 Genres: {genres}\n📆 Year: <a href={url}/releaseinfo>{year}</a>
 🌟 Rating: <a href={url}/ratings>{rating}</a> / 10"""
+
+    FLTERS_TXT = """
+<b>Hᴇʏ {}, Tʜᴇsᴇ ᴀʀᴇ ᴍʏ ᴛʜʀᴇᴇ ᴛʏᴘᴇs ᴏғ ғɪʟᴛᴇʀs.</b>"""
+    
     
     CONNECTION_TXT = """Help: <b>Connections</b>
 
