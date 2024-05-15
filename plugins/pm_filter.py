@@ -447,6 +447,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('Fɪʟᴛᴇʀs ', callback_data='filter'),
+            InlineKeyboardButton('Fɪʟᴇ Sᴛᴏʀᴇ  ', callback_data='filegen')
         ], [
             InlineKeyboardButton('Exᴛʀᴀ Mᴏᴅs', callback_data='extra'),            
         ], [
@@ -482,6 +483,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.GLOBAL_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "filegen":
+        buttons = [[                        
+            InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='filter')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.FILE_STORE_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
