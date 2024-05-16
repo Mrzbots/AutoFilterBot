@@ -18,9 +18,6 @@
 - [x] Stats, Users, Chats, Ban, Unban, Leave, Disable, Channel
 - [x] Spelling Check Feature
 - [x] File Store
-## Variables
-
-Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up with your edits.
 
 ### Required Variables
 * `BOT_TOKEN`: Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token.
@@ -41,8 +38,8 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 <details><summary>Deploy To Heroku</summary>
 <p>
 <br>
-<a href="https://telegram.dog/XTZ_HerokuBot?start=RXZhbWFyaWFURy9FdmFNYXJpYSBtYXN0ZXI">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+<a href="https://heroku.com/deploy?template=https://github.com/Mishel-Tg/AutoFilterBot">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy To Heroku">
 </a>
 </p>
 </details>
@@ -50,7 +47,7 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
-git clone https://github.com/EvamariaTG/evamaria
+git clone https://github.com/Mishel-Tg/AutoFilterBot
 # Install Packages
 pip3 install -U -r requirements.txt
 Edit info.py with variables as given below then run bot
@@ -89,17 +86,18 @@ python3 bot.py
 • /link - to create link for one post
 ```
 ## Support
-[![telegram badge](https://img.shields.io/badge/Telegram-Group-30302f?style=flat&logo=telegram)](https://telegram.dog/EvaMariaSupport)
-[![telegram badge](https://img.shields.io/badge/Telegram-Channel-30302f?style=flat&logo=telegram)](https://telegram.dog/TeamEvamaria)
+[![telegram badge](https://img.shields.io/badge/Telegram-Group-30302f?style=flat&logo=telegram)](https://telegram.dog/XBOTSUPPORTS)
+[![telegram badge](https://img.shields.io/badge/Telegram-Channel-30302f?style=flat&logo=telegram)](https://telegram.dog/botultest)
 
-## Credits 
-* [![EvaMaria-Devs](https://img.shields.io/static/v1?label=EvaMaria&message=devs&color=critical)](https://telegram.dog/EvaMariaDevs)
+
 
 
 ## Thanks to 
- - Thanks To Dan For His Awesome [Library](https://github.com/pyrogram/pyrogram)
+ - - Thanks To Dan For His Awesome [Library](https://github.com/pyrogram/pyrogram)
  - Thanks To Mahesh For His Awesome [Media-Search-bot](https://github.com/Mahesh0253/Media-Search-bot)
  - Thanks To [Trojanz](https://github.com/trojanzhex) for Their Awesome [Unlimited Filter Bot](https://github.com/TroJanzHEX/Unlimited-Filter-Bot) And [AutoFilterBoT](https://github.com/trojanzhex/auto-filter-bot)
+ - Thanks To All Everyone In This Journey
+ - Thanks To [EvamariaTG](https://raw.githubusercontent.com/EvamariaTG) for their awesome [EvaMaria Bot](https://raw.githubusercontent.com/EvamariaTG/EvaMaria)
  - Thanks To All Everyone In This Journey
 
 ### Note
