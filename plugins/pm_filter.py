@@ -607,8 +607,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit_text(text=script.ADMIN_TXT, reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
         else:
             await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIᴛꜱ ᴏɴʟʏ ғᴏʀ ᴍʏ ADMINS", show_alert=True)
-
-        )
+        
     elif query.data == "stats":
         buttons = [[
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='help'),
