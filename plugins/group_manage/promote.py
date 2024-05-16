@@ -39,7 +39,7 @@ async def promoting(client, message):
 
 
 @Client.on_message(filters.command("demote"))
-async def promoting(client, message):
+async def demote(client, message):
      global new_admin
      if not message.reply_to_message:
          return await message.reply("use this command reply")
