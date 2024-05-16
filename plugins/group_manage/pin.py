@@ -7,9 +7,9 @@ async def unpinall(client, message: Message):
     bot_stats = await client.get_chat_member(message.chat.id, "self")
     if not bot_stats.privileges:
         return await message.reply("Iam not Admin 😞")
-    elif bot_stats.status.can_unpin_all_chat_messages and not message.reply_to_message:
+    elif bot_stats.privileges.can_unpin_all_chat_messages:
         return await message.reply("Sorry dude I don't have pin rights 🙃")
-    elif user.status.can_unpin_all_chat_messages and not message.reply_to_message:
+    elif user.privileges.can_unpin_all_chat_messages:
         return await message.reply("you are admin this chat but you don't have pin rights")
     elif not user.privileges:
         return await message.reply("Sorry dude you dont have permission ")
@@ -24,9 +24,9 @@ async def pin_handler(client, message: Message):
     bot_stats = await client.get_chat_member(message.chat.id, "self")
     if not bot_stats.privileges:
         return await message.reply("Iam not Admin 😞")
-    elif bot_stats.status.can_pin_messages and not message.reply_to_message:
+    elif bot_stats.privileges.can_pin_messages:
         return await message.reply("Sorry dude I don't have pin rights 🙃")
-    elif user.status.can_pin_messages and not message.reply_to_message:
+    elif user.privileges.can_pin_messages:
         return await message.reply("you are admin this chat but you don't have pin rights")
     elif not user.privileges:
         return await message.reply("Sorry dude you dont have permission ")
