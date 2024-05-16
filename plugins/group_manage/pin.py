@@ -1,37 +1,52 @@
-from pyrogram.types import *
-from pyrogram import *
-
-@Client.on_message(filters.command("unpin") & filters.group)
-async def unpin(client, message: Message):
-    reply = message.reply_to_message_id
-    user = await client.get_chat_member(message.chat.id, message.from_user.id)
-    bot_stats = await client.get_chat_member(message.chat.id, "self")
-    if not bot_stats.privileges:
-        return await message.reply("Iam not Admin 😞")
-    elif bot_stats.privileges.can_unpin_chat_message:
-        return await message.reply("Sorry dude I don't have pin rights 🙃")
-    elif user.privileges.can_unpin_chat_message:
-        return await message.reply("you are admin this chat but you don't have pin rights")
-    elif not user.privileges:
-        return await message.reply("Sorry dude you dont have permission ")
-    await client.unpin_chat_message(message.chat.id, reply)    
+from pyrogram.types import Message
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from pyrogram import filters, enums 
 
 
+async def admin_check(message: Message) -> bool:
+    if not message.from_user:
+        return False
 
-        
-@Client.on_message(filters.command("pin") & filters.group)
-async def pin(client, message: Message):
-    reply = message.reply_to_message_id
-    user = await client.get_chat_member(message.chat.id, message.from_user.id)
-    bot_stats = await client.get_chat_member(message.chat.id, "self")
-    if not bot_stats.privileges:
-        return await message.reply("Iam not Admin 😞")
-    elif bot_stats.privileges.can_pin_messages:
-        return await message.reply("Sorry dude I don't have pin rights 🙃")
-    elif user.privileges.can_pin_messages:
-        return await message.reply("you are admin this chat but you don't have pin rights")
-    elif not user.privileges:
-        return await message.reply("Sorry dude you dont have permission ")
-    await client.pin_chat_message(message.chat.id, reply)
-    
-        
+    if message.chat.type not in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        return False
+
+    if message.from_user.id in [
+        777000,  # Telegram Service Notifications
+        1087968824  # GroupAnonymousBot
+    ]:
+        return True
+
+    client = message._client
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+
+    check_status = await client.get_chat_member(
+        chat_id=chat_id,
+        user_id=user_id
+    )
+    admin_strings = [enums.ChatMemberStatus.OWNER, enums.ChatMemberStatus.ADMINISTRATOR]
+    # https://git.colinshark.de/PyroBot/PyroBot/src/branch/master/pyrobot/modules/admin.py#L69
+    if check_status.status not in admin_strings:
+        return False
+    else:
+        return True
+
+async def admin_filter_f(filt, client, message):
+    return await admin_check(message)
+
+admin_fliter = filters.create(func=admin_filter_f, name="AdminFilter")
+
+
+@Client.on_message(filters.command("pin") & admin_fliter)
+async def pin(_, message: Message):
+    if not message.reply_to_message:
+        return
+    await message.reply_to_message.pin()
+
+
+@Client.on_message(filters.command("unpin") & admin_fliter)             
+async def unpin(_, message: Message):
+    if not message.reply_to_message:
+        return
+    await message.reply_to_message.unpin()
