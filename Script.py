@@ -16,6 +16,13 @@ class script(object):
 
 <b>DEVS:</b>
 - <a href=https://t.me/botuptest>Creator</a>"""
+    PROMOTE = """ You can make members in your group admin
+ 
+By using this command. 
+/promote
+
+
+You can remove them by admin using this command /demote"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
 - Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message
