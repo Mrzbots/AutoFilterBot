@@ -5,13 +5,13 @@ from pyrogram import *
 async def unpinall(client, message: Message):
     user = await client.get_chat_member(message.chat.id, message.from_user.id)
     bot_stats = await client.get_chat_member(message.chat.id, "self")
-    if not bot_stats.status.can_change_info:
+    if not bot_stats.privileges:
         return await message.reply("Iam not Admin 😞")
     elif bot_stats.status.can_unpin_all_chat_messages and not message.reply_to_message:
         return await message.reply("Sorry dude I don't have pin rights 🙃")
     elif user.status.can_unpin_all_chat_messages and not message.reply_to_message:
         return await message.reply("you are admin this chat but you don't have pin rights")
-    elif not user.status:
+    elif not user.privileges:
         return await message.reply("Sorry dude you dont have permission ")
     await client.unpin_all_chat_messages(message.chat.id)    
 
@@ -22,13 +22,13 @@ async def unpinall(client, message: Message):
 async def pin_handler(client, message: Message):
     user = await client.get_chat_member(message.chat.id, message.from_user.id)
     bot_stats = await client.get_chat_member(message.chat.id, "self")
-    if not bot_stats.status.can_change_info:
+    if not bot_stats.privileges:
         return await message.reply("Iam not Admin 😞")
     elif bot_stats.status.can_pin_messages and not message.reply_to_message:
         return await message.reply("Sorry dude I don't have pin rights 🙃")
     elif user.status.can_pin_messages and not message.reply_to_message:
         return await message.reply("you are admin this chat but you don't have pin rights")
-    elif not user.status:
+    elif not user.privileges:
         return await message.reply("Sorry dude you dont have permission ")
     await client.pin_chat_message(message.chat.id, msg)
     
