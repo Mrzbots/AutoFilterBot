@@ -3,7 +3,7 @@ from pyrogram.types import *
 
 
 
-@Client.on_message(filters.command("promote"))
+@Client.on_message(filters.command("promote") & filters.group)
 async def promoting(client, message):
      global new_admin
      if not message.reply_to_message:
@@ -38,7 +38,7 @@ async def promoting(client, message):
           await msg.edit(f"successful promoted {admin.mention}")
 
 
-@Client.on_message(filters.command("demote"))
+@Client.on_message(filters.command("demote") & filters.group)
 async def demote(client, message):
      global new_admin
      if not message.reply_to_message:
