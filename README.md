@@ -38,7 +38,7 @@
 <details><summary>Deploy To Heroku</summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/Mishel-Tg/AutoFilterBot">
+<a href="https://heroku.com/deploy?template=https://github.com/Mrzbots/AutoFilterBot">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy To Heroku">
 </a>
 </p>
@@ -47,7 +47,7 @@
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
-git clone https://github.com/Mishel-Tg/AutoFilterBot
+git clone https://github.com/Mrzbots/AutoFilterBot
 # Install Packages
 pip3 install -U -r requirements.txt
 Edit info.py with variables as given below then run bot
