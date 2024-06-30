@@ -31,14 +31,12 @@
 ### Optional Variables
 * `PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
-* Check [info.py](https://github.com/EvamariaTG/evamaria/blob/master/info.py) for more
-
 
 ## Deploy
 <details><summary>Deploy To Heroku</summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/Mrzbots/AutoFilterBot">
+<a href="https://heroku.com/deploy?template=https://github.com/Mishel-Tg/AutoFilterBot">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy To Heroku">
 </a>
 </p>
@@ -47,11 +45,27 @@
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
-git clone https://github.com/Mrzbots/AutoFilterBot
+git clone https://github.com/Mishel-Tg/AutoFilterBot
 # Install Packages
 pip3 install -U -r requirements.txt
 Edit info.py with variables as given below then run bot
 python3 bot.py
+</pre>
+</p>
+</details>
+
+<details><summary>Deploy To Render</summary>
+<p>
+<pre>
+<a href=https://youtu.be/wJZWE2wdRM8?si=jik03F0MvJdZSCD9>Toturial Video</a>
+</pre>
+</p>
+</details>
+
+<details><summary>How to Deploy</summary>
+<p>
+<pre>
+<a href=https://youtu.be/wJZWE2wdRM8?si=jik03F0MvJdZSCD9>Toturial Video</a>
 </pre>
 </p>
 </details>
