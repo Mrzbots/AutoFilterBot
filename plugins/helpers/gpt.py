@@ -3,15 +3,15 @@ from pyrogram import filters, Client
 from pyrogram.types import Message, InputMediaPhoto
 from pyrogram.errors import MediaCaptionTooLong
 
-api_url_gpt = "https://nandha-api.onrender.com/ai/gpt"
+api_url_gpt = "https://horrid-api.onrender.com/gpt"
 api_url_bard = "https://nandha-api.onrender.com/ai/bard"
 
 def fetch_data(api_url: str, query: str) -> tuple:
     try:
-        response = requests.get(f"{api_url}/{query}")
+        response = requests.get(f"{api_url}?query={query}")
         response.raise_for_status()
         data = response.json()
-        return data.get("content", "No response from the API."), data.get("images", False)
+        return data.get("response", "No response from the API."), data.get("images", False)
     except requests.exceptions.RequestException as e:
         return None, f"**Opps!! Request error: {e}**"
     except Exception as e:
