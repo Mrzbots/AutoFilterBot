@@ -27,6 +27,7 @@ async def echo(client, message):
     await reply.reply_text(message.text.split(None, 1)[1])
     await message.delete()
 
+
 @Client.on_message(filters.command("echo") & filters.private)
 async def echoptp(client, message):
     await message.reply_text("Sorry dude This command Only work in group 😊")
