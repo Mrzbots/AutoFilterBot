@@ -57,14 +57,13 @@ async def palm(client, message):
 
 @Client.on_message(filters.command("ai"))
 async def ai(client, message):
+    if len(message.text.split(" ", 1)) == 1:
+        return await message.reply_text("Provide a query")
+        
     prompt = "assistant"
     url = "https://horrid-api.onrender.com/ai"
     headers = {"Content-Type": "application/json"}
-    query = message.text.split(" ", 1)[1]  # Get the query from the message
-
-    if not query:
-        return await message.reply_text("Please provide a query with /ai")
-
+    query = message.text.split(" ", 1)[1]  # Get the query from the message    
     data = {"query": query, "prompt": prompt}
 
     try:
