@@ -1,82 +1,81 @@
+# credits @Mrz_bots
+
 import requests
-from pyrogram import filters, Client
-from pyrogram.types import Message, InputMediaPhoto
-from pyrogram.errors import MediaCaptionTooLong
+from pyrogram import Client, filters
 
-api_url_gpt = "https://horrid-api.onrender.com/gpt"
-api_url_bard = "https://nandha-api.onrender.com/ai/bard"
+# Define a descriptive constant for the API URL
+API_URL = "https://horrid-api.onrender.com/llama"
 
-def fetch_data(api_url: str, query: str) -> tuple:
-    try:
-        response = requests.get(f"{api_url}?query={query}")
-        response.raise_for_status()
-        data = response.json()
-        return data.get("response", "No response from the API."), data.get("images", False)
-    except requests.exceptions.RequestException as e:
-        return None, f"**Opps!! Request error: {e}**"
-    except Exception as e:
-        return None, f"An error occurred: {str(e)}"
+@Client.on_message(filters.command(["llama", "llamaai", "ask"]))
+async def handle_llama_command(client, message):
+    """Processes user queries using the Llama AI API."""
 
-@Client.on_message(filters.command(["openai", "ask", "gpt"]))
-async def chatgpt(_, message):
+    # Check for missing input with a clear and concise message
     if len(message.command) < 2:
-        return await message.reply_text("Give An Input!!")
+        return await message.reply_text("Hey!   Please provide some text for me to analyze.")
 
-    query = " ".join(message.command[1:])    
-    txt = await message.reply_text("**Wait patiently, requesting to API...**")
-    api_response, error_message = fetch_data(api_url_gpt, query)
-    await txt.edit(api_response or error_message)
-
-
-
-
-
-@Client.on_message(filters.command(["bard", "gemini"]))
-async def bard(app, message):
-    chat_id = message.chat.id
-    message_id = message.id
-    
-    if len(message.command) < 2:
-        return await message.reply_text("Give An Input!!")
-
+    # Extract the user's query and provide initial feedback
     query = " ".join(message.command[1:])
-    txt = await message.reply_text("**Wait patiently, requesting to API...**")
-    
-    api_response, images = fetch_data(api_url_bard, query)
+    thinking_message = await message.reply_text(" Thinking like a llama...")
 
-    medias = []
-    bard = str(api_response)
     try:
-       photo_url = images[-1]
-    except:
-        pass
+        # Fetch response from Llama AI using f-string formatting
+        response = requests.get(f"{API_URL}?query={query}").json()
+
+        # Craft a well-formatted response message
+        response_message = f"""
+Hey, {message.from_user.mention}! 
+
+Query: {query}
+
+Result:
+{response['response']}
+"""
+
+        # Edit the thinking message to display the result
+        await thinking_message.edit(response_message)
+
+    except Exception as e:
+        # Handle errors gracefully with a user-friendly message
+        error_message = f"Hmm, something went wrong: {str(e)}"[:100] + "..."
+        await thinking_message.edit(error_message)
+
+@Client.on_message(filters.command("palm"))
+async def palm(client, message):
+    if len(message.text.split(" ", 1)) == 1:
+        return await message.reply_text("Provide a query")
     
+    query = message.text.split(" ", 1)[1]
     
-    if images:
-        if len(images) > 1:
-            for url in images:
-                medias.append(InputMediaPhoto(media=url, caption=None))
-                        
-            medias[-1] = InputMediaPhoto(media=photo_url, caption=bard)
-            
-            try:
-                await app.send_media_group(chat_id=chat_id, media=medias, reply_to_message_id=message_id)
-                return await txt.delete()
-            except Exception as e:
-                return await txt.edit(str(e))
-        elif len(images) < 2:
-            image_url = images[0]
-            try:
-                await message.reply_photo(photo=image_url, caption=bard)
-                return await txt.delete()
-            except MediaCaptionTooLong:
-                return await txt.edit(bard)
-            except Exception as e:
-                return await txt.edit(str(e))
-        else:
-            return await txt.edit('Somthing went wrong')
-    else:
-        try:
-            return await txt.edit(bard)
-        except Exception as e:
-            return await txt.edit(str(e))
+    api = f"https://horrid-api.onrender.com/palm?query={query}"
+    response = requests.get(api)
+    result = response.json().get("result", "No result found")
+    
+    s = await message.reply_text("Thinking 💭")
+    await s.edit(result)
+
+
+@Client.on_message(filters.command("ai"))
+async def ai(client, message):
+    prompt = "assistant"
+    url = "https://horrid-api.onrender.com/ai"
+    headers = {"Content-Type": "application/json"}
+    query = message.text.split(" ", 1)[1]  # Get the query from the message
+
+    if not query:
+        return await message.reply_text("Please provide a query with /ai ")
+
+    data = {"query": query, "prompt": prompt}
+
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()  # Raise an exception for bad status codes
+    except requests.exceptions.RequestException as e:
+        return await message.reply_text(f"Error: {e}")
+
+    try:
+        response_json = response.json()
+        thinking = await message.reply_text("Thinking ✍️...")
+        await thinking.edit(response_json['response'])
+    except (KeyError, TypeError):
+        await message.reply_text("Invalid response from the API")
