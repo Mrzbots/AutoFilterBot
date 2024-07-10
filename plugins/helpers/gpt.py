@@ -63,7 +63,7 @@ async def ai(client, message):
     query = message.text.split(" ", 1)[1]  # Get the query from the message
 
     if not query:
-        return await message.reply_text("Please provide a query with /ai ")
+        return await message.reply_text("Please provide a query with /ai")
 
     data = {"query": query, "prompt": prompt}
 
