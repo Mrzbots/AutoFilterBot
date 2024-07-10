@@ -1,4 +1,4 @@
-# credits @XBOTSUPPORTS
+# credits @Mrz_bots
 
 from pyrogram import Client, filters, enums
 from pyrogram.types import *
@@ -26,7 +26,6 @@ async def echo(client, message):
 
     await reply.reply_text(message.text.split(None, 1)[1])
     await message.delete()
-
 
 
 @Client.on_message(filters.command("echo") & filters.private)

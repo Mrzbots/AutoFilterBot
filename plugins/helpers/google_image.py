@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto
 
 
-@Client.on_message(filters.command(["image", "img"]))
+# @Client.on_message(filters.command(["image", "img"]))
 async def pinterest(client, message):
     chat_id = message.chat.id
 
