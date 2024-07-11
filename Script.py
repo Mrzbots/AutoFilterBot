@@ -211,6 +211,34 @@ This module only works for my admins
 • /sh - install package or other use and code run
 • /restart - restart the bot
 """
+    ALRT_TXT = """Hᴇʟʟᴏ {},
+
+Tʜɪs ɪs ɴᴏᴛ ʏᴏᴜʀ ʀᴇϙᴜᴇsᴛ.
+Rᴇϙᴜᴇsᴛ ʏᴏᴜʀsᴇʟғ...!!"""
+
+    OLD_ALRT_TXT = """Hey {},
+You are using one of old message,
+Request Again"""
+
+    CUDNT_FND = """<b>I ᴄᴏᴜʟᴅɴ'ᴛ ғɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ. Dɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏғ ᴛʜᴇsᴇ?</b>"""
+
+    I_CUDNT = """<b>I ᴄᴏᴜʟᴅɴ'ᴛ ғɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ.</b>"""
+
+    I_CUD_NT = """<b>I ᴄᴏᴜʟᴅɴ'ᴛ ғɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ.</b>"""
+
+    MVE_NT_FND = """<b>I ᴄᴏᴜʟᴅɴ'ᴛ ғɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ.</b>"""
+
+    TOP_ALRT_MSG = """Cʜᴇᴄᴋɪɴɢ ғᴏʀ ϙᴜᴇʀʏ ɪɴ Dᴀᴛᴀʙᴀsᴇ """
+    
+    NORSLTS = """
+#NoResults 
+
+ID <b>: {}</b>
+
+Name <b>: {}</b>
+
+Message <b>: {}</b>"""
+    
     STATUS_TXT = """★ 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
 ★ 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
 ★ 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
