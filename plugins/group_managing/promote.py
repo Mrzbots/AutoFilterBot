@@ -1,8 +1,6 @@
 from pyrogram import *
 from pyrogram.types import *
 
-
-
 @Client.on_message(filters.command("promote") & filters.group)
 async def promoting(client, message):
      global new_admin
