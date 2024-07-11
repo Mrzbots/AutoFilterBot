@@ -1,11 +1,12 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM
-from imdb import Cinemagoer
+from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, CUSTOM_FILE_CAPTION
+from imdb import Cinemagoer 
 import asyncio
-from pyrogram.types import Message, InlineKeyboardButton
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import enums
 from typing import Union
+import random 
 import re
 import os
 from datetime import datetime
@@ -36,9 +37,12 @@ class temp(object):
     CURRENT=int(os.environ.get("SKIP", 2))
     CANCEL = False
     MELCOW = {}
+    FILES = {}
     U_NAME = None
     B_NAME = None
     SETTINGS = {}
+    FILES_IDS = {}
+    SPELL_CHECK = {}
 
 async def is_subscribed(bot, query):
     try:
@@ -48,14 +52,13 @@ async def is_subscribed(bot, query):
     except Exception as e:
         logger.exception(e)
     else:
-        if user.status != 'kicked':
+        if user.status != enums.ChatMemberStatus.BANNED:
             return True
 
     return False
 
 async def get_poster(query, bulk=False, id=False, file=None):
     if not id:
-        # https://t.me/GetTGLink/4183
         query = (query.strip()).lower()
         title = query
         year = re.findall(r'[1-2]\d{3}$', query, re.IGNORECASE)
@@ -131,7 +134,6 @@ async def get_poster(query, bulk=False, id=False, file=None):
         'rating': str(movie.get("rating")),
         'url':f'https://www.imdb.com/title/tt{movieid}'
     }
-# https://github.com/odysseusmax/animated-lamp/blob/2ef4730eb2b5f0596ed6d03e7b05243d93e3415b/bot/utils/broadcast.py#L37
 
 async def broadcast_messages(user_id, message):
     try:
@@ -151,6 +153,20 @@ async def broadcast_messages(user_id, message):
         await db.delete_user(int(user_id))
         logging.info(f"{user_id} - PeerIdInvalid")
         return False, "Error"
+    except Exception as e:
+        return False, "Error"
+
+async def broadcast_messages_group(chat_id, message):
+    try:
+        kd = await message.copy(chat_id=chat_id)
+        try:
+            await kd.pin()
+        except:
+            pass
+        return True, "Succes"
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return await broadcast_messages_group(chat_id, message)
     except Exception as e:
         return False, "Error"
 
@@ -215,7 +231,6 @@ def get_file_id(msg: Message):
 
 def extract_user(message: Message) -> Union[int, str]:
     """extracts the user from a message"""
-    # https://github.com/SpEcHiDe/PyroGramBot/blob/f30e2cca12002121bad1982f68cd0ff9814ce027/pyrobot/helper_functions/extract_user.py#L7
     user_id = None
     user_first_name = None
     if message.reply_to_message:
@@ -274,6 +289,27 @@ def last_online(from_user):
     return time
 
 
+def split_quotes(text: str) -> List:
+    if not any(text.startswith(char) for char in START_CHAR):
+        return text.split(None, 1)
+    counter = 1  # ignore first char -> is some kind of quote
+    while counter < len(text):
+        if text[counter] == "\\":
+            counter += 1
+        elif text[counter] == text[0] or (text[0] == SMART_OPEN and text[counter] == SMART_CLOSE):
+            break
+        counter += 1
+    else:
+        return text.split(None, 1)
+
+    # 1 to avoid starting quote, and counter is exclusive so avoids ending
+    key = remove_escapes(text[1:counter].strip())
+    # index will be in range, or `else` would have been executed and returned
+    rest = text[counter + 1:].strip()
+    if not key:
+        key = text[0] + text[0]
+    return list(filter(None, [key, rest]))
+
 def gfilterparser(text, keyword):
     if "buttonalert" in text:
         text = (text.replace("\n", "\\n").replace("\t", "\\t"))
@@ -329,28 +365,6 @@ def gfilterparser(text, keyword):
         return note_data, buttons, alerts
     except:
         return note_data, buttons, None
-
-
-def split_quotes(text: str) -> List:
-    if not any(text.startswith(char) for char in START_CHAR):
-        return text.split(None, 1)
-    counter = 1  # ignore first char -> is some kind of quote
-    while counter < len(text):
-        if text[counter] == "\\":
-            counter += 1
-        elif text[counter] == text[0] or (text[0] == SMART_OPEN and text[counter] == SMART_CLOSE):
-            break
-        counter += 1
-    else:
-        return text.split(None, 1)
-
-    # 1 to avoid starting quote, and counter is exclusive so avoids ending
-    key = remove_escapes(text[1:counter].strip())
-    # index will be in range, or `else` would have been executed and returned
-    rest = text[counter + 1:].strip()
-    if not key:
-        key = text[0] + text[0]
-    return list(filter(None, [key, rest]))
 
 def parser(text, keyword):
     if "buttonalert" in text:
@@ -432,3 +446,25 @@ def humanbytes(size):
         size /= power
         n += 1
     return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
+
+async def send_all(bot, userid, files, ident):
+    for file in files:
+        f_caption = file.caption
+        title = file.file_name
+        size = get_size(file.file_size)
+        if CUSTOM_FILE_CAPTION:
+            try:
+                f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
+                                                        file_size='' if size is None else size,
+                                                        file_caption='' if f_caption is None else f_caption)
+            except Exception as e:
+                print(e)
+                f_caption = f_caption
+        if f_caption is None:
+            f_caption = f"{title}"
+        await bot.send_cached_media(
+            chat_id=userid,
+            file_id=file.file_id,
+            caption=f_caption,
+            protect_content=True if ident == "filep" else False,
+            reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('', url="") ] ] ))
