@@ -7,14 +7,10 @@ from pyrogram import Client, filters
 API_URL = "https://horrid-api.onrender.com/llama"
 
 @Client.on_message(filters.command(["llama", "llamaai", "ask"]))
-async def handle_llama_command(client, message):
-    """Processes user queries using the Llama AI API."""
-
-    # Check for missing input with a clear and concise message
+async def handle_llama_command(client, message):    
     if len(message.command) < 2:
         return await message.reply_text("Hey!   Please provide some text for me to analyze.")
-
-    # Extract the user's query and provide initial feedback
+    
     query = " ".join(message.command[1:])
     thinking_message = await message.reply_text(" Thinking like a llama...")
 
@@ -61,6 +57,7 @@ async def ai(client, message):
         return await message.reply_text("Provide a query")
         
     prompt = "assistant"
+    thinking = await message.reply_text("Thinking ✍️...")
     url = "https://horrid-api.onrender.com/ai"
     headers = {"Content-Type": "application/json"}
     query = message.text.split(" ", 1)[1]  # Get the query from the message    
@@ -73,8 +70,7 @@ async def ai(client, message):
         return await message.reply_text(f"Error: {e}")
 
     try:
-        response_json = response.json()
-        thinking = await message.reply_text("Thinking ✍️...")
+        response_json = response.json()        
         await thinking.edit(response_json['response'])
     except (KeyError, TypeError):
         await message.reply_text("Invalid response from the API")
