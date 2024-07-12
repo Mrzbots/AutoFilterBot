@@ -8,6 +8,10 @@ import asyncio
         
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
 async def verupikkals(bot, message):
+    if len(message.command) < 2:
+        await message.reply("Please reply this command to the message you want to broadcast !")
+        return
+            
     users = await db.get_all_users()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
@@ -41,6 +45,10 @@ async def verupikkals(bot, message):
 
 @Client.on_message(filters.command("group_broadcast") & filters.user(ADMINS) & filters.reply)
 async def broadcast_group(bot, message):
+    if len(message.command) < 2:
+        await message.reply("Please reply this command to the message you want to broadcast !")
+        return
+            
     groups = await db.get_all_chats()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
