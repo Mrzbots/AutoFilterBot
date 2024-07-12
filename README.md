@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="https://telegra.ph/file/0e69f05fa82524b52704a.jpg" alt="Autofilter-bot">
+</p>
 <h1 align="center">
   <b>Auto Filter Bot</b>
 </h1>
