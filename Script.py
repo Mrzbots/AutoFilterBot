@@ -207,9 +207,10 @@ This module only works for my admins
 • /unban  - <code>to unban a user.</code>
 • /channel - <code>to get list of total connected channels</code>
 • /broadcast - <code>to broadcast a message to all users</code>
-• /eval - run python codes 
-• /sh - install package or other use and code run
-• /restart - restart the bot
+• /group_broadcast - <code>to broadcast a message to all groups</code>
+• /eval - <code>run python codes</code>
+• /sh - <code>install package or other use and code run</code>
+• /restart - <code>restart the bot</code>
 """
     ALRT_TXT = """Hᴇʟʟᴏ {},
 
