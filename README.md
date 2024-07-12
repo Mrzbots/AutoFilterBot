@@ -9,6 +9,7 @@
 ## Features
 
 - [x] Auto Filter
+- [X] Auto Start Pic
 - [x] Manual Filter
 - [x] IMDB
 - [x] Admin Commands
@@ -19,6 +20,7 @@
 - [x] Random pics
 - [x] ids and User info 
 - [x] Stats, Users, Chats, Ban, Unban, Leave, Disable, Channel
+- [X] Promote, demote
 - [x] Spelling Check Feature
 - [x] File Store
 
