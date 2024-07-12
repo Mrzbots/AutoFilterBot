@@ -7,11 +7,7 @@ from utils import broadcast_messages, broadcast_messages_group
 import asyncio
         
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
-async def verupikkals(bot, message):
-    if len(message.command) < 2:
-        await message.reply("Please reply this command to the message you want to broadcast !")
-        return
-            
+async def verupikkals(bot, message):    
     users = await db.get_all_users()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
@@ -44,11 +40,7 @@ async def verupikkals(bot, message):
     await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
 
 @Client.on_message(filters.command("group_broadcast") & filters.user(ADMINS) & filters.reply)
-async def broadcast_group(bot, message):
-    if len(message.command) < 2:
-        await message.reply("Please reply this command to the message you want to broadcast !")
-        return
-            
+async def broadcast_group(bot, message):    
     groups = await db.get_all_chats()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
