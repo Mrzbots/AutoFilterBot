@@ -5,6 +5,21 @@
   <b>Auto Filter Bot</b>
 </h1>
 
+![Python](https://python.org)
+![GitHub](https://github.com/)
+
+![Issues](https://github.com/AsmSafone/SafoneAPI/issues)
+![Forks](https://github.com/AsmSafone/SafoneAPI/fork)
+![Stars](https://github.com/AsmSafone/SafoneAPI)
+![LICENSE](https://github.com/AsmSafone/SafoneAPI)
+![Contributors](https://github.com/AsmSafone/SafoneAPI)
+
+![Issues](https://github.com/Mrzbots/AutoFilterBot/issues)
+![Forks](https://github.com/Mrzbots/AutoFilterBot/fork)
+![Stars](https://github.com/Mrzbots/AutoFilterBot)
+![LICENSE](https://github.com/Mrzbots/AutoFilterBot)
+![Contributors](https://github.com/Mrzbots/AutoFilterBot)
+
 
 ## Features
 
