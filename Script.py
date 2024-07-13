@@ -46,17 +46,17 @@ Commands and Usage:
 ᴜsɪɴɢ ʙʏ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ /bug """
     FEED = """Iғ Yᴏᴜ Wᴀɴᴛ Aɴʏ Fᴇᴇᴅʙᴀᴄᴋ ᴏʀ Aɴʏ Fᴇᴄᴛᴜʀᴇs Aʙᴏᴜᴛ Tʜᴇ Bᴏᴛ, 
 Jᴜsᴛ Usᴇ Tʜɪs Cᴏᴍᴍᴀɴᴅ /feedback"""
-    OPENAI = """ Gᴏᴏɢʟᴇ ᴀɪ Hᴇʟᴘ
+    AI = """AI
 
-Cᴏᴍᴍᴀɴᴅꜱ ᴀɴᴅ Uꜱᴀɢᴇ:
-
-• /openai - [ǫᴜᴇꜱᴛɪᴏɴ] ᴀꜱᴋ ᴀ ǫᴜᴇꜱᴛɪᴏɴ ᴛᴏ ᴄʜᴀᴛɢᴘᴛ.
+/ai - advance ai
+/llama - meta ai
+/palm - provide by
 """
-    GOOGLE = """ OᴘᴇɴAɪ Hᴇʟᴘ
+    FUNS = """FUNS HELP
 
-Cᴏᴍᴍᴀɴᴅꜱ ᴀɴᴅ Uꜱᴀɢᴇ:
-
-• /gemini - [ǫᴜᴇꜱᴛɪᴏɴ] ᴀꜱᴋ ᴀ ǫᴜᴇꜱᴛɪᴏɴ ᴛᴏ Gᴏᴏɢʟᴇ ᴀɪ.
+/truth - [message]
+/dare - [message]
+/joke - [message]
 """
     ECHO = """ Tʜɪs ғᴇᴄᴛᴜʀᴇ ɪs ᴠᴇʀʏ ɪɴᴛᴇʀᴇsᴛɪɴɢ ᴀɴᴅ ғᴜɴɴʏ 
 
