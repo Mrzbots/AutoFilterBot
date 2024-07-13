@@ -27,7 +27,7 @@ Bʏ ᴜsɪɴɢ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ.
 
 Yᴏᴜ ᴄᴀɴ ʀᴇᴍᴏᴠᴇ ᴛʜᴇᴍ ʙʏ ᴀᴅᴍɪɴ ᴜsɪɴɢ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ /demote</b>"""
     IMG = """ You Can Serch Image Using This command /img
-Example: <code> /img Tony stark </code>"""
+Example: <code> /image Tony stark </code>"""
     FONT_TXT = """ ᴛᴏ ᴜsᴇ ᴛʜɪs ғᴜɴᴄᴛɪᴏɴ
 
 /font {your_text}
