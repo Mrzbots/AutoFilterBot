@@ -50,7 +50,7 @@ Jᴜsᴛ Usᴇ Tʜɪs Cᴏᴍᴍᴀɴᴅ /feedback"""
 
 /ai - advance ai
 /llama - meta ai
-/palm - provide by
+/palm - provide by palm 2
 """
     FUNS = """FUNS HELP
 
