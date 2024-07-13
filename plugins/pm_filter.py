@@ -551,8 +551,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Exᴛʀᴀ Mᴏᴅs', callback_data='extra'),
             InlineKeyboardButton('Pᴏɴɢ', callback_data='pong')
         ], [
-            InlineKeyboardButton('Gᴏᴏɢʟᴇ ᴀɪ', callback_data='google'),
-            InlineKeyboardButton('Oᴘᴇɴᴀɪ ', callback_data='openai'),
+            InlineKeyboardButton('Fᴜɴs', callback_data='funs'),
+            InlineKeyboardButton('ᴀɪ ', callback_data='ai'),
             InlineKeyboardButton('Tᴛs', callback_data='tts')
         ], [
             InlineKeyboardButton('Bᴜɢs Rᴇᴘᴏʀᴛ', callback_data='bugs'),
@@ -751,7 +751,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "openai":
+    elif query.data == "ai":
         buttons = [[                        
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='help')
         ]]
@@ -762,11 +762,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
-            text=script.OPENAI,
+            text=script.AI,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "google":
+    elif query.data == "funs":
         buttons = [[                        
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='help')
         ]]
@@ -777,7 +777,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
-            text=script.GOOGLE,
+            text=script.FUNS,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
