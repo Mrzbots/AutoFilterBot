@@ -1,6 +1,7 @@
 # credits @Mrz_bots
 
 import requests
+from HorridAPI import api 
 from pyrogram import Client, filters
 
 # Define a descriptive constant for the API URL
@@ -9,14 +10,14 @@ API_URL = "https://horrid-api.onrender.com/llama"
 @Client.on_message(filters.command(["llama", "llamaai", "ask"]))
 async def handle_llama_command(client, message):    
     if len(message.command) < 2:
-        return await message.reply_text("Hey!   Please provide some text for me to analyze.")
+        return await message.reply_text("Please provide query!")
     
     query = " ".join(message.command[1:])
-    thinking_message = await message.reply_text(" Thinking like a llama...")
+    thinking_message = await message.reply_text("<b>wait...😎</b")
 
     try:
-        # Fetch response from Llama AI using f-string formatting
-        response = requests.get(f"{API_URL}?query={query}").json()
+        # response 
+        response = api.llama(query)
 
         # Craft a well-formatted response message
         response_message = f"""
@@ -25,7 +26,7 @@ Hey, {message.from_user.mention}!
 Query: {query}
 
 Result:
-{response['response']}
+{response}
 """
 
         # Edit the thinking message to display the result
