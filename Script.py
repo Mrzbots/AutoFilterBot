@@ -19,6 +19,10 @@ class script(object):
     IMAGINE = """ How to Use example
 <code>/imagine a boy and girl looking a sky </code>
 You Can Create Your like pictures using by This command /imagine """
+    TRANSLATE = """Usages:
+/tr reply message and ml like this
+
+<code> /tr ml </code>"""
     PROMOTE = """<b>Yᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ᴍᴇᴍʙᴇʀs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴ
  
 Bʏ ᴜsɪɴɢ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ. 
