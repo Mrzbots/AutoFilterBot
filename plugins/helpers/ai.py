@@ -4,9 +4,6 @@ import requests
 from HorridAPI import api 
 from pyrogram import Client, filters
 
-# Define a descriptive constant for the API URL
-API_URL = "https://horrid-api.onrender.com/llama"
-
 @Client.on_message(filters.command(["llama", "llamaai", "ask"]))
 async def handle_llama_command(client, message):    
     if len(message.command) < 2:
