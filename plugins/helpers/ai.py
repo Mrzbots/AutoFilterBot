@@ -36,22 +36,7 @@ Result:
         # Handle errors gracefully with a user-friendly message
         error_message = f"Hmm, something went wrong: {str(e)}"[:100] + "..."
         await thinking_message.edit(error_message)
-
-@Client.on_message(filters.command("palm"))
-async def palm(client, message):
-    if len(message.text.split(" ", 1)) == 1:
-        return await message.reply_text("Provide a query")
-    
-    query = message.text.split(" ", 1)[1]
-    
-    api = f"https://horrid-api.onrender.com/palm?query={query}"
-    response = requests.get(api)
-    result = response.json().get("result", "No result found")
-    
-    s = await message.reply_text("Thinking 💭")
-    await s.edit(result)
-
-
+        
 @Client.on_message(filters.command("ai"))
 async def ai(client, message):
     if len(message.text.split(" ", 1)) == 1:
