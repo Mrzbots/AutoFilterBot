@@ -579,7 +579,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Eᴄʜᴏ ', callback_data='echo'),
             InlineKeyboardButton('Iᴍᴀɢᴇ ', callback_data='img')
         ], [
-            InlineKeyboardButton('Iᴍᴀɢɪɴᴇ ', callback_data='imagine')
+            InlineKeyboardButton('Iᴍᴀɢɪɴᴇ ', callback_data='imagine'),
+            InlineKeyboardButton('Tʀᴀɴsʟᴀᴛᴇ  ', callback_data='trans')
         ], [
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='help')
         ]]
@@ -613,6 +614,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         await query.message.edit_text(
             text=script.FLTERS_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "trans":
+        buttons = [[                        
+            InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='helpps')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id,
+            query.message.id,
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.TRANSLATE,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
