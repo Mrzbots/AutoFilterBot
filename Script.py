@@ -51,10 +51,7 @@ Commands and Usage:
     FEED = """Iғ Yᴏᴜ Wᴀɴᴛ Aɴʏ Fᴇᴇᴅʙᴀᴄᴋ ᴏʀ Aɴʏ Fᴇᴄᴛᴜʀᴇs Aʙᴏᴜᴛ Tʜᴇ Bᴏᴛ, 
 Jᴜsᴛ Usᴇ Tʜɪs Cᴏᴍᴍᴀɴᴅ /feedback"""
     AI = """AI
-
-/ai - advance ai
-/llama - meta ai
-/palm - provide by palm 2
+/ask {query}
 """
     FUNS = """FUNS HELP
 
