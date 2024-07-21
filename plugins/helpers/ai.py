@@ -10,7 +10,7 @@ async def handle_llama_command(client, message):
         return await message.reply_text("Please provide query!")
     
     query = " ".join(message.command[1:])
-    thinking_message = await message.reply_text("<b>wait...😎</b")
+    thinking_message = await message.reply_text("<b>wait...😎</b>")
 
     try:
         # response 
