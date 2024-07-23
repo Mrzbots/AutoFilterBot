@@ -20,4 +20,4 @@ psutil
 unidecode
 httpx
 aiohttp
-HorridAPI==0.6
+HorridAPI==1.0.14
