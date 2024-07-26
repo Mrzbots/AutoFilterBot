@@ -28,7 +28,6 @@ async def image_search(client, message):
        
         media.append(InputMediaPhoto(media=img))
         count += 1
-
-    await search_message.edit_text(f"Found {count} images for your query!")
+    
     await message.reply_media_group(media=media)    
     await search_message.delete()
