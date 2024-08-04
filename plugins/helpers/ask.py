@@ -11,26 +11,12 @@ async def handle_llama_command(client, message):
     
     query = " ".join(message.command[1:])
     thinking_message = await message.reply_text("<b>wait...😎</b>")
-
-    try:
-        # response 
-        response = api.llama(query)
-
-        # Craft a well-formatted response message
-        response_message = f"""
-Hey, {message.from_user.mention}! 
-
-Query: {query}
-
-Result:
-{response}
-"""
-
-        # Edit the thinking message to display the result
-        await thinking_message.edit(response_message)
+    try:        
+        response = api.llama(query)        
+        await thinking_message.edit(f"Hey, {message.from_user.mention}!\nQuery: {query}\nResult:\n{response}")
 
     except Exception as e:
         # Handle errors gracefully with a user-friendly message
-        error_message = f"Hmm, something went wrong: {str(e)}"[:100] + "..."
+        error_message = f"Hmm, something went wrong: {str(e)}"[:100] + "...\n use /bug comment"
         await thinking_message.edit(error_message)
         
