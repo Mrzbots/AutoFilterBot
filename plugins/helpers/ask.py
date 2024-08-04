@@ -15,7 +15,8 @@ async def ask(client, message):
         response = api.llama(query)        
         await thinking_message.edit(f"Hey, {message.from_user.mention}!\nQuery: {query}\nResult:\n{response}")
 
-    except Exception as e:        
+    except Exception as e:  
+        # print(e)
         error_message = f"Hmm, something went wrong: {str(e)}"[:100] + "...\n use /bug comment"
         await thinking_message.edit(error_message)
         
