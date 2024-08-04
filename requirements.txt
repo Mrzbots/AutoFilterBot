@@ -11,13 +11,10 @@ bs4
 cinemagoer
 datetime
 pytz
-wget
 aiohttp==3.7.4
 gTTS
 googletrans==3.1.0a0
 telegraph
 psutil
-unidecode
-httpx
 aiohttp
 HorridAPI==1.0.22
