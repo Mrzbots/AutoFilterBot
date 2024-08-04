@@ -4,7 +4,7 @@ import requests
 from HorridAPI import api 
 from pyrogram import Client, filters
 
-@client.on_message(filters.command("ask"))
+@Client.on_message(filters.command("ask"))
 async def ask(client, message):    
     if len(message.command) < 2:
         return await message.reply_text("Please provide query!")
