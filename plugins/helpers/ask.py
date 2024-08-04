@@ -5,7 +5,7 @@ from HorridAPI import api
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("ask"))
-async def handle_llama_command(client, message):    
+async def ask(client, message):    
     if len(message.command) < 2:
         return await message.reply_text("Please provide query!")
     
