@@ -80,6 +80,14 @@ Jᴜsᴛ Usᴇ Tʜɪs Cᴏᴍᴍᴀɴᴅ /feedback"""
 • /filters - <code>list all the filters of a chat</code>
 • /del - <code>delete a specific filter in chat</code>
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
+
+    ENHANCE = """ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴘʜᴏᴛᴏ ᴜsɪɴɢ ʙʏ /enhance ᴀɴᴅ ᴛʜᴀᴛ ᴘʜᴏᴛᴏ ᴡɪʟʟ ᴇɴʜᴀɴᴄᴇᴅ"""
+    CARBON = """HELP: Carbon
+
+Beautify your code using carbon!
+
+USAGE:
+➢ /carbon [text] - Create carbon from the given text."""
     BUTTON_TXT = """Help: <b>Buttons</b>
 
 - bot Supports both url and alert inline buttons.
