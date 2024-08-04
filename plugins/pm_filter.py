@@ -580,7 +580,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Iᴍᴀɢᴇ ', callback_data='img')
         ], [
             InlineKeyboardButton('Iᴍᴀɢɪɴᴇ ', callback_data='imagine'),
-            InlineKeyboardButton('Tʀᴀɴsʟᴀᴛᴇ  ', callback_data='trans')
+            InlineKeyboardButton('Tʀᴀɴsʟᴀᴛᴇ  ', callback_data='trans'),
+            InlineKeyboardButton('Cᴀʀʙᴏɴ  ', callback_data='carbon'),       
+        ], [
+            InlineKeyboardButton('Eɴʜᴀɴᴄᴇ ', callback_data='enhance'),
         ], [
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='help')
         ]]
@@ -592,6 +595,36 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         await query.message.edit_text(
             text=script.HELP_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "enhance":
+        buttons = [[                        
+            InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='helpps')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id,
+            query.message.id,
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.ENHANCE,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "carbon":
+        buttons = [[                        
+            InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='helpps')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id,
+            query.message.id,
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.CARBON,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
