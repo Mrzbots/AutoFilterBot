@@ -1,4 +1,5 @@
 # credits @Mrz_bots
+# code by @HORRIDduo 
 
 from pyrogram import Client, filters, enums
 from pyrogram.types import *
