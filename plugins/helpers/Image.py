@@ -18,7 +18,7 @@ async def image_search(client, message):
     
     async with aiohttp.ClientSession() as session:
         async with session.get(f"https://horrid-api.onrender.com/image_search?query={text}") as resp:
-            images = json.loads(await resp.text())  # Parse the response JSON into a list of image URLs
+            images = json.loads(await resp.text())  
 
     media = []
     count = 0
