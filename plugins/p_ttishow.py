@@ -38,7 +38,7 @@ async def save_group(bot, message):
             return
         buttons = [[
             InlineKeyboardButton('ℹ️ Hᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 Updates', url=UPDATE_CHANNEL)
+            InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url=UPDATE_CHANNEL)
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -53,7 +53,21 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply_video(video=WVD, caption=f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>")
+                temp.MELCOW['welcome'] = await message.reply_video(
+                                                 video=WVD, 
+                                                 caption=f"<b>Hello {u.mention}, welcome to the {message.chat.title}! We're thrilled to have you on board! We hope you'll find our community informative, supportive, and fun. If you have any questions or need assistance, don't hesitate to reach out. We're here to help. Enjoy your time with us!</b>",
+                                                 reply_markup=InlineKeyboardMarkup(
+                                                                         [[
+                                                                           InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url=UPDATE_CHANNEL), 
+                                                                           InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ ', url=f'https://t.me/{SUPPORT_CHAT}')                                                                        ]
+                                                                         ]]
+                                                 ),
+                                                 parse_mode=enums.ParseMode.HTML
+                )
+                
+        if settings["auto_delete"]:
+            await asyncio.sleep(600)
+            await (temp.MELCOW['welcome']).delete()
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
