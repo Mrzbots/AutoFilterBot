@@ -13,7 +13,7 @@ async def enhance_photo(client: Client, message: Message):
     replied = message.reply_to_message    
     media = await replied.download()
     gfile = Core.upload(media)    
-    mes = await message.reply_text("`Uploading`")
+    mes = await message.reply_text("`Uploading...`")
     response = requests.get(gfile)
     image_data = BytesIO(response.content)
 
