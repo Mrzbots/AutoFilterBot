@@ -23,7 +23,7 @@ async def openai(client, message):
     }
     try:        
         response = openai(payload, 5)        
-        await thinking_message.edit(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n<code>{response}</code>")
+        await thinking_message.edit(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{response}")
 
     except Exception as e:  
         # print(e)
