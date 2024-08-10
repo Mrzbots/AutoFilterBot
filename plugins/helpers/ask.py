@@ -13,7 +13,7 @@ async def ask(client, message):
     thinking_message = await message.reply_text("<b>wait...😎</b>")
     try:        
         response = api.llama(query)        
-        await thinking_message.edit(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n<code>{response}</code>")
+        await thinking_message.edit(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n<code>{response}</code>")
 
     except Exception as e:  
         # print(e)
