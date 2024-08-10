@@ -51,7 +51,7 @@ Commands and Usage:
     FEED = """Iғ Yᴏᴜ Wᴀɴᴛ Aɴʏ Fᴇᴇᴅʙᴀᴄᴋ ᴏʀ Aɴʏ Fᴇᴄᴛᴜʀᴇs Aʙᴏᴜᴛ Tʜᴇ Bᴏᴛ, 
 Jᴜsᴛ Usᴇ Tʜɪs Cᴏᴍᴍᴀɴᴅ /feedback"""
     AI = """AI
-/ask {query}
+/openai {query}
 """
     FUNS = """FUNS HELP
 
