@@ -4,7 +4,7 @@ import requests
 from HorridAPI.AiGenerativeContent import AiGenerativeContent
 from pyrogram import Client, filters
 
-openai = AiGenerativeContent.gen_content
+generate_content = AiGenerativeContent.gen_content
 
 @Client.on_message(filters.command("openai"))
 async def openai(client, message):    
@@ -22,8 +22,9 @@ async def openai(client, message):
         ]
     }
     try:        
-        response = openai(payload, 5)          
-        await message.reply_text(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{response}")
+        response = await generate_content(payload, 5)
+        content = response['response']
+        await message.reply_text(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{content}")
         await mes.delete()
 
     except Exception as e:  
