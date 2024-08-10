@@ -17,7 +17,8 @@ async def openai(client, message):
         "messages": [                    
             {            
                 "role": "user", 
-                "content": query}
+                "content": query
+            }
         ]
     }
     try:        
