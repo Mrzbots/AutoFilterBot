@@ -4,7 +4,6 @@ import requests
 from HorridAPI.AiGenerativeContent import AiGenerativeContent
 from pyrogram import Client, filters
 
-generate_content = AiGenerativeContent.gen_content
 
 @Client.on_message(filters.command("openai"))
 async def openai(client, message):    
@@ -21,8 +20,9 @@ async def openai(client, message):
             }
         ]
     }
-    try:        
-        response = await generate_content(payload, 5)
+    try:    
+        ai = AiGenerativeContent
+        response = ai.gen_content(payload, 5)
         content = response['response']
         await mes.edit(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{content}")
 
