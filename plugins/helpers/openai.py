@@ -12,7 +12,7 @@ async def openai(client, message):
         return await message.reply_text("Please provide query!")
     
     query = " ".join(message.command[1:])
-    thinking_message = await message.reply_text("<b>wait...😎</b>")
+    mes = await message.reply_text("🌚")
     payload = {
         "messages": [                    
             {            
@@ -22,8 +22,9 @@ async def openai(client, message):
         ]
     }
     try:        
-        response = openai(payload, 5)        
-        await thinking_message.edit(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{response}")
+        response = openai(payload, 5)          
+        await message.reply_text(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{response}")
+        await mes.delete()
 
     except Exception as e:  
         # print(e)
