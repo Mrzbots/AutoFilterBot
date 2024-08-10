@@ -24,10 +24,9 @@ async def openai(client, message):
     try:        
         response = await generate_content(payload, 5)
         content = response['response']
-        await message.reply_text(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{content}")
-        await mes.delete()
+        await mes.edit(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{content}")
 
     except Exception as e:  
         # print(e)
         error_message = f"Hmm, something went wrong: {str(e)}"[:100] + "...\n use /bug comment"
-        await thinking_message.edit(error_message)
+        await mes.edit(error_message)
