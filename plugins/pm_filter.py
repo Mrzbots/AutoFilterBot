@@ -587,7 +587,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Tᴇʟᴇɢʀᴀᴘʜ ', callback_data='telegraph'),
             InlineKeyboardButton('Sᴏɴɢ ', callback_data='song')
         ], [
-            InlineKeyboardButton('Qʀ ᴄᴏᴅᴇ ', callback_data='qr')
+            InlineKeyboardButton('Qʀ ᴄᴏᴅᴇ ', callback_data='qr'),
+            InlineKeyboardButton('Lʏʀɪᴄꜱ ', callback_data='lyrics'),
+            InlineKeyboardButton('Nᴇᴡꜱ ', callback_data='news')
         ], [
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='help')
         ]]
@@ -602,6 +604,36 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    elif query.data == "news":
+        buttons = [[                        
+            InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='helpps')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id,
+            query.message.id,
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.NEWS,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "lyrics":
+        buttons = [[                        
+            InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='helpps')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id,
+            query.message.id,
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.LYRICS,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+    )
     elif query.data == "qr":
         buttons = [[                        
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='helpps')
