@@ -146,10 +146,13 @@ USAGE:
 <b>📂 Fɪʟᴇ ɴᴀᴍᴇ : </b> {file_name}"""
 
     IMDB_TEMPLATE_TXT = """
-<b>Query: {query}</b> \n‌‌‌‌IMDb Data:
+<b>Query: {query}
+IMDb Data:
+
 🏷 Title: <a href={url}>{title}</a>
-🎭 Genres: {genres}\n📆 Year: <a href={url}/releaseinfo>{year}</a>
-🌟 Rating: <a href={url}/ratings>{rating}</a> / 10"""
+🎭 Genres: {genres}
+📆 Year: <a href={url}/releaseinfo>{year}</a>
+🌟 Rating: <a href={url}/ratings>{rating}</a> / 10</b>"""
 
     FLTERS_TXT = """
 <b>Hᴇʏ {}, Tʜᴇsᴇ ᴀʀᴇ ᴍʏ ᴛʜʀᴇᴇ ᴛʏᴘᴇs ᴏғ ғɪʟᴛᴇʀs.</b>"""
