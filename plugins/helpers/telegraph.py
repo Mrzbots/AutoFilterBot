@@ -10,16 +10,13 @@ async def telegraph(client, message):
             reply = message.reply_to_message
             if message.reply_to_message.photo:
                 file = await reply.download()
+                file_name = file
             else:
                 file = await reply.download()
-            
-            try:
-                response = upload_file(file)
-                await msg.edit(f"Telegraph Link: `https://telegra.ph{response[0]}`")
-            except Exception as e:
-                await msg.edit(f"An error occurred: {e}\nreply use this comment /bug")
-            finally:
-                os.remove(file)
+                file_name = file
+            response = upload_file((file_name, open(file, 'rb')))
+            await msg.edit(f"Telegraph Link: `https://telegra.ph{response[0]}`")
+            os.remove(file)
         else:
             await message.reply_text("Please reply to a photo or video.")
     else:
