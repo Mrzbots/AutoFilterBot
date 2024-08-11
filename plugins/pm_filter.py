@@ -587,6 +587,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Tᴇʟᴇɢʀᴀᴘʜ ', callback_data='telegraph'),
             InlineKeyboardButton('Sᴏɴɢ ', callback_data='song')
         ], [
+            InlineKeyboardButton('Qʀ ᴄᴏᴅᴇ ', callback_data='qr')
+        ], [
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -597,6 +599,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         await query.message.edit_text(
             text=script.HELP_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "qr":
+        buttons = [[                        
+            InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='helpps')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id,
+            query.message.id,
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.QRCODE,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
