@@ -11,7 +11,7 @@ bs4
 cinemagoer
 datetime
 pytz
-aiohttp==3.7.4
+aiohttp==3.10.2
 gTTS
 googletrans==3.1.0a0
 telegraph
