@@ -1212,19 +1212,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
 async def auto_filter(client, msg, spoll=False):
+    reqstr1 = msg.from_user.id if msg.from_user else 0
+    reqstr = await client.get_users(reqstr1)
     if not spoll:
         message = msg
         settings = await get_settings(message.chat.id)
         if message.text.startswith("/"): return  # ignore commands
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
-        if 2 < len(message.text) < 100:
+        if len(message.text) < 100:
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, msg)
                 else:
+                    await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
                     return
         else:
             return
@@ -1232,7 +1235,7 @@ async def auto_filter(client, msg, spoll=False):
         settings = await get_settings(msg.message.chat.id)
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
-    pre = 'filep' if settings['file_secure'] else 'file'
+    pre = 'filep' if settings['file_secure'] else 'file' 
     if settings["button"]:
         btn = [
             [
@@ -1316,7 +1319,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"Hᴇʀᴇ ɪs ᴡʜᴀᴛ ɪ ғᴏᴜɴᴅ ғᴏʀ ʏᴏᴜʀ ϙᴜᴇʀʏ {search}"
+        cap = f"<b>ϙᴜᴇʀʏ ʙʏ :- {message.from_user.mention}\nᴛɪᴛʟᴇ: - {search}\nᴛᴏᴛᴀʟ:- {str(total_results)}\nᴘʀᴏᴠɪᴅᴇ ʙʏ {message.chat.title}</b>"
     if imdb and imdb.get('poster'):
         try:
             mes=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
@@ -1339,7 +1342,7 @@ async def auto_filter(client, msg, spoll=False):
                 await dai.delete()
         except Exception as e:
             logger.exception(e)
-            andi=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            andi=await message.reply_photo(photo=NO_IMDB, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
             if settings["auto_delete"]:
                 await asyncio.sleep(600)
                 await andi.delete()
@@ -1347,7 +1350,7 @@ async def auto_filter(client, msg, spoll=False):
                 await asyncio.sleep(100)
                 await dai.delete()
     else:
-        perfectok=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        perfectok=await message.reply_photo(photo=NO_IMDB, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
         if settings["auto_delete"]:
             await asyncio.sleep(600)
             await perfectok.delete()
