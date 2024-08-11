@@ -304,7 +304,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     try:
         if settings['auto_delete']:
             btn.insert(
-                1,
+                0,
                 [
                     InlineKeyboardButton(f'Mᴏᴠɪᴇ ', 'minfo'),
                     InlineKeyboardButton(f'Tɪᴘs ', 'tinfo'),
@@ -314,7 +314,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
 
         else:
             btn.insert(
-                1,
+                0,
                 [
                     InlineKeyboardButton(f'Mᴏᴠɪᴇ ', 'minfo'),
                     InlineKeyboardButton(f'Tɪᴘs ', 'tinfo'),
@@ -328,7 +328,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         settings = await get_settings(message.chat.id)
         if settings['auto_delete']:
             btn.insert(
-                1,
+                0,
                 [
                     InlineKeyboardButton(f'Mᴏᴠɪᴇ ', 'minfo'),
                     InlineKeyboardButton(f'Tɪᴘs ', 'tinfo'),
@@ -338,7 +338,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
 
         else:
             btn.insert(
-                1,
+                0,
                 [
                     InlineKeyboardButton(f'Mᴏᴠɪᴇ ', 'minfo'),
                     InlineKeyboardButton(f'Tɪᴘs ', 'tinfo'),
@@ -349,12 +349,19 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     btn.insert(0, [
         InlineKeyboardButton(f'♻️ {search} ♻️', 'qinfo')
     ])
-    btn.insert(1, [
+    btn.insert(0, [
         InlineKeyboardButton("Lᴀɴɢᴜᴀɢᴇ ", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
     ])
     
     offset = 0
 
+    btn.append([
+        InlineKeyboardButton(
+            text="⇚ Bᴀᴄᴋ",
+            callback_data=f"next_{req}_{key}_{offset}"
+        ),
+    ])
+    
     await query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(btn))
 
                             
