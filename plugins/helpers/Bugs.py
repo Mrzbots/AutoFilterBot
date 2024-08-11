@@ -12,7 +12,7 @@ async def feedda(client, message):
 
   await client.send_message(LOG_CHANNEL, text=f"#Feedbackfromvazha\n\nfeeed back : <code>{fa}</code> user : {message.from_user.mention}") 
 
-@Client.on_message(filters.command("bug"))
+@Client.on_message(filters.command(["bug", "bugs"]))
 async def bug(client, message):
     if len(message.command) < 2:
         if message.reply_to_message:
