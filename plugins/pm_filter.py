@@ -1412,6 +1412,11 @@ async def auto_filter(client, msg, spoll=False):
     )
     btn.insert(1, 
         [
+            InlineKeyboardButton("Lᴀɴɢᴜᴀɢᴇ ", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
+        ]
+    )
+    btn.insert(2, 
+        [
             InlineKeyboardButton(f'Mᴏᴠɪᴇ ', 'minfo'),
             InlineKeyboardButton(f'Tɪᴘs ', 'tinfo'),
             InlineKeyboardButton(f'Iɴғᴏ ', 'reqinfo')
