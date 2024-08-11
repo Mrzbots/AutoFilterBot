@@ -16,6 +16,10 @@ class script(object):
 
 <b>DEVS:</b>
 - <a href=https://t.me/Mrz_bots>Creator</a>"""
+    TELEGRAPH = """Reply to any photo or video using by /telegraph that photo telegraph link you will get"""
+    SONG = """Usages song: 
+
+/song - {song name}"""
     IMAGINE = """ How to Use example
 <code>/imagine a boy and girl looking a sky </code>
 You Can Create Your like pictures using by This command /imagine """
