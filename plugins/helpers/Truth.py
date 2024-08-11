@@ -1,5 +1,3 @@
-# provide by HorridAPI 
-
 from pyrogram import Client, filters
 from HorridAPI import api
 
