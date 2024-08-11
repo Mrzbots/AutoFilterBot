@@ -742,7 +742,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ], [
             InlineKeyboardButton('Qʀ ᴄᴏᴅᴇ ', callback_data='qr'),
             InlineKeyboardButton('Lʏʀɪᴄꜱ ', callback_data='lyrics'),
-            InlineKeyboardButton('Nᴇᴡꜱ ', callback_data='news')
+            InlineKeyboardButton('Tᴏᴏʟꜱ ', callback_data='tools')
         ], [
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='help')
         ]]
@@ -757,7 +757,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "news":
+    elif query.data == "tools":
         buttons = [[                        
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='helpps')
         ]]
@@ -768,7 +768,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
-            text=script.NEWS,
+            text=script.TOOLS,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
