@@ -4,7 +4,6 @@ from pyrogram.types import Message
 from pyrogram import filters, enums 
 from pyrogram.types import *
 
-
 async def admin_check(message: Message) -> bool:
     if not message.from_user:
         return False
