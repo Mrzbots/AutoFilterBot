@@ -273,6 +273,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         return
 
     settings = await get_settings(message.chat.id)
+    pre = 'filep' if settings['file_secure'] else 'file'
     if settings["button"]:
         btn = [
             [
