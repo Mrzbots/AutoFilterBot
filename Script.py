@@ -17,6 +17,12 @@ class script(object):
 <b>DEVS:</b>
 - <a href=https://t.me/Mrz_bots>Creator</a>"""
     TELEGRAPH = """Reply to any photo or video using by /telegraph that photo telegraph link you will get"""
+    NEWS = """Usage NEWS:
+
+/news - {text}"""
+    LYRICS = """Usage Lyrics:
+
+/lyrics - {song name}"""
     QRCODE = """Usage qr code:
 
 /qr - {text}"""
