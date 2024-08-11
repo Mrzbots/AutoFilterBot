@@ -15,7 +15,7 @@ async def telegraph(client, message):
             
             try:
                 response = upload_file(file)
-                await msg.edit(f"Telegraph Link: `https://telegra.ph{response[0]['src']}`")
+                await msg.edit(f"Telegraph Link: `https://telegra.ph{response[0]}`")
             except Exception as e:
                 await msg.edit(f"An error occurred: {e}\nreply use this comment /bug")
             finally:
