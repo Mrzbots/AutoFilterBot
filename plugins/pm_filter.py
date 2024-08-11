@@ -1422,10 +1422,9 @@ async def auto_filter(client, msg, spoll=False):
             InlineKeyboardButton(f'Iɴғᴏ ', 'reqinfo')
         ]
     )
-   
+    BUTTONS[key] = search 
     if offset != "":
-        key = f"{message.chat.id}-{message.id}"
-        BUTTONS[key] = search
+        key = f"{message.chat.id}-{message.id}"        
         req = message.from_user.id if message.from_user else 0
         btn.append(
             [InlineKeyboardButton(text=f"🗓 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
