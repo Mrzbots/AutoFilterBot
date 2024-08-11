@@ -1,4 +1,4 @@
-import logging
+import loggin
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
 from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, CUSTOM_FILE_CAPTION, UPDATE_CHANNEL
 from imdb import Cinemagoer 
