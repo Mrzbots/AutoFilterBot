@@ -7,10 +7,11 @@ async def telegraph(client, message):
     if message.reply_to_message:
         if message.reply_to_message.photo or message.reply_to_message.video:
             msg = await message.reply_text("Uploading to Telegraph...")
+            reply = message.reply_to_message
             if message.reply_to_message.photo:
-                file = await client.download_media(message.reply_to_message.photo.file_id)
+                file = await reply.download()
             else:
-                file = await client.download_media(message.reply_to_message.video.file_id)
+                file = await reply.download()
             
             try:
                 response = upload_file(file)
