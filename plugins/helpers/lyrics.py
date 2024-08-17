@@ -9,7 +9,7 @@ async def lyrics(client, message):
         return
 
     song_name = " ".join(args[1:])  
-    api = f"https://horrid-api.onrender.com/lyrics?song={song_name}"
+    api = f"https://horrid-api-yihb.onrender.com/lyrics?song={song_name}"
     
     try:
         response = requests.get(api)
