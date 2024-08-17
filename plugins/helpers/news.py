@@ -7,7 +7,7 @@ async def latest_news(client, message):
         return await message.reply_text("Please provide query")
     
     query = message.text.split(" ")[1]  
-    response = requests.get(f"https://horrid-api.onrender.com/news?query={query}")
+    response = requests.get(f"https://horrid-api-yihb.onrender.com/news?query={query}")
     news_data = response.json()
     news_title = news_data.get("title")
     news_source = news_data.get("source")
