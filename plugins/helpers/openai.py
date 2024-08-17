@@ -25,7 +25,7 @@ async def openai(client, message):
     }
     try:    
         ai = AiGenerativeContent
-        response = ai.gen_content(payload, 5)
+        response = ai.gen_content(payload, "gpt-3.5")
         content = response['response']
         await mes.edit(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{content}")
 
