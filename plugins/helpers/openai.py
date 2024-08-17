@@ -6,11 +6,14 @@ from pyrogram import Client, filters
 
 
 @Client.on_message(filters.command("openai"))
-async def openai(client, message):    
+async def openai(client, message):
+    text = " ".join(message.command[1:])
     if len(message.command) < 2:
         return await message.reply_text("Please provide query!")
-    
-    query = " ".join(message.command[1:])
+    if message.reply_to_message:
+        query = f"{message.reply_to_message.text} {text}"
+    else:
+        query = " ".join(message.command[1:])
     mes = await message.reply_text("🌚")
     payload = {
         "messages": [                    
