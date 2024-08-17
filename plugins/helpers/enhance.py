@@ -18,7 +18,7 @@ async def enhance_photo(client: Client, message: Message):
     image_data = BytesIO(response.content)
 
     # api url
-    api = requests.post("https://horrid-api.onrender.com/enhance", files={"image": image_data})
+    api = requests.post("https://horrid-api-yihb.onrender.com/enhance", files={"image": image_data})
 
     bio = BytesIO(api.content)
 
