@@ -1,7 +1,7 @@
 # credits @Mrz_bots
 
 import requests
-from HorridAPI.AiGenerativeContent import AiGenerativeContent
+from HorridAPI.AiGenerativeContent import AiGenerativeContent as openai 
 from pyrogram import Client, filters
 
 
@@ -11,10 +11,10 @@ async def openai(client, message):
     if len(message.command) < 2:
         return await message.reply_text("Please provide query!")
     if message.reply_to_message:
-        query = f"{message.reply_to_message.text} {text}"
+        query = f"{message.reply_to_message.text}\n{text}"
     else:
         query = " ".join(message.command[1:])
-    mes = await message.reply_text("🌚")
+    mes = await message.reply_text("🔍")
     payload = {
         "messages": [                    
             {            
@@ -23,11 +23,10 @@ async def openai(client, message):
             }
         ]
     }
-    try:    
-        ai = AiGenerativeContent
-        response = ai.gen_content(payload, "gpt-3.5")
+    try:           
+        response = openai.gen_content(payload, "gpt-3.5")
         content = response['response']
-        await mes.edit(f"Hey {message.from_user.mention},\n\nQuery: {query}\n\nResult:\n\n{content}")
+        await mes.edit(f"Hey {message.from_user.mention},\n\nQuery: {text}\n\nResult:\n\n{content}")
 
     except Exception as e:  
         # print(e)
