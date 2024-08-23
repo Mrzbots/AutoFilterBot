@@ -41,6 +41,10 @@ DATABASE_URI = environ.get('DATABASE_URI', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "autofilter")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
+# AI
+HORRI_API_KEY = environ.get('HORRI_API_KEY', '')
+BOT_USERNAME = environ.get('BOT_USERNAME', 'TonyStartkRobot')
+
 # Others
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'xbotsupports')
