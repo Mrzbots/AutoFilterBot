@@ -42,7 +42,7 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "autofilter")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # AI
-HORRI_API_KEY = environ.get('HORRI_API_KEY', '') # You can get api key here https://t.me/Mrz_bots/222
+HORRI_API_KEY = environ.get('HORRI_API_KEY', 'horridapi_Uwk1YJbLSibv2rf88EBPOQ_free_key') # You can get api key here https://t.me/Mrz_bots/222
 BOT_USERNAME = environ.get('BOT_USERNAME', 'TonyStartkRobot')
 
 # Others
