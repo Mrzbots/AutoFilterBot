@@ -18,4 +18,3 @@ telegraph
 psutil
 aiohttp
 HorridAPI==1.0.28
-telegraph
