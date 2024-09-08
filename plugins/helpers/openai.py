@@ -1,7 +1,7 @@
 # credits @Mrz_bots
 
 import requests
-from HorridAPI.AiGenerativeContent import AiGenerativeContent as openai 
+from HorridAPI.AiGenerativeContent import AiGenerativeContent 
 from pyrogram import Client, filters
 
 
@@ -23,7 +23,8 @@ async def openai(client, message):
             }
         ]
     }
-    try:           
+    try:    
+        openai = AiGenerativeContent
         response = openai.gen_content(payload, "gpt-3.5")
         content = response['response']
         await mes.edit(f"Hey {message.from_user.mention},\n\nQuery: {text}\n\nResult:\n\n{content}")
