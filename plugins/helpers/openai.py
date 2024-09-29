@@ -23,7 +23,7 @@ async def openai(client, message):
 
     try:
         response = k.generate(
-            system="assistant",
+            system="You are a Help full assistant, You act like a good human",
             prompt=query,
             user_id=message.from_user.id,
             model="gpt-3.5"
