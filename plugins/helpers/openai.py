@@ -14,7 +14,7 @@ async def openai(client, message):
         return await message.reply_text("Please provide a query!")
     
     if message.reply_to_message:
-        query = f"Old conversation: {message.reply_to_message.text}\nNew Conversation: {query}"
+        query = f"Old conversation: {message.reply_to_message.text}\nNew Conversation: {text}"
     else:
         query = text
 
