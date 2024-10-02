@@ -5,11 +5,11 @@
   <b>Auto Filter Bot</b>
 </h1>
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Welcome+To+Mrz-Autofilter-Bot;Provide+by+HorridAPI;A+simple+and+Powerfull+Autofilter+Bot;also+cool+multi+fectures+in+cluding+ai;You+can+host+vps+heroku+render+koyeb)
+![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Welcome+To+Mrz-Autofilter-Bot;Provide+by+HorridAPI;A+simple+and+Powerfull+Autofilter+Bot;also+cool+multi+fectures+including+ai;You+can+host+vps+heroku+render+koyeb)
 </p>
 
-<a href="https://github.com/Mrzbots/AutoFilterBot/stargazers"><img src="https://img.shields.io/github/stars/mrzbots/autofilterbot?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
-<a href="[https://github.com/Mrzbots/AutoFilterBot](https://github.com/Mrzbots/AutoFilterBot)/network/members"> <img src="https://img.shields.io/github/forks/Mrzbots/autofilter bot?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
+<a href="https://github.com/Mrzbots/AutoFilterBot/stargazers"><img src="https://img.shields.io/github/stars/Mrzbots/AutofilterBot?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
+<a href="[https://github.com/Mrzbots/AutoFilterBot](https://github.com/Mrzbots/AutoFilterBot)/network/members"> <img src="https://img.shields.io/github/forks/Mrzbots/autofilterbot?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
 <a href="https://github.com/Mrzbots/AutoFilterBot"> <img src="https://img.shields.io/github/repo-size/mrzbots/autofilterbot?color=skyblue&logo=github&logoColor=blue&style=for-the-badge" /></a>   
 <a href="https://github.com/Mrzbots/AutoFilterBot/commits"> <img src="https://img.shields.io/github/last-commit/mrzbots/autofilterbot?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
 <a href="https://github.com/Mrzbots/AutoFilterBot"> <img src="https://img.shields.io/github/contributors/mrzbots/autofilterbot?color=skyblue&logo=github&logoColor=blue&style=for-the-badge" /></a>
