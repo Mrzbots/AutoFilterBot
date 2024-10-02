@@ -5,6 +5,8 @@
   <b>Auto Filter Bot</b>
 </h1>
 
+Demo bot - [demo](https://telegram.dog/TonyStartkRobot)
+
 
 ## Features
 
