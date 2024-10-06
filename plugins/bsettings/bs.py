@@ -31,13 +31,3 @@ async def bs_settings(client, message):
             ]
         )
     await message.reply("Bot Settings:", reply_markup=keyboard)
-
-@Client.on_callback_query()
-async def callback_query_handler(client, callback_query):
-    data = callback_query.data
-    if data == "pm_search_on":
-        update_pm_search_status(True)
-        await callback_query.edit_message_text("PM Search is now ON ✔️")
-    elif data == "pm_search_off":
-        update_pm_search_status(False)
-        await callback_query.edit_message_text("PM Search is now OFF ❌")
