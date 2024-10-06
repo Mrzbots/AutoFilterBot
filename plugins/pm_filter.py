@@ -1,6 +1,7 @@
 # Kanged From @TroJanZheX
 import asyncio
 import re
+from plugins.bsettings.bs import update_pm_search_status
 from pyrogram import *
 import ast
 import math
@@ -757,6 +758,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    elif query.data == "pm_search_on":
+        update_pm_search_status(True)
+        await client.edit_message_text("PM Search is now ON ✔️")
+    elif query.data == "pm_search_off":
+        update_pm_search_status(False)
+        await client.edit_message_text("PM Search is now OFF ❌")
     elif query.data == "tools":
         buttons = [[                        
             InlineKeyboardButton('⇌ Bᴀᴄᴋ ⇌', callback_data='helpps')
