@@ -1,7 +1,7 @@
 # Kanged From @TroJanZheX
 import asyncio
 import re
-from plugins.bsettings.bs import update_pm_search_status
+from .bsettings.bs import update_pm_search_status
 from pyrogram import *
 import ast
 import math
