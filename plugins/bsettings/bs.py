@@ -1,9 +1,9 @@
 from pyrogram import Client, filters
-from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from database.bs import bss
 
 def get_pm_search_status():
-    user_data = bss.find_one()
+    user_data = bss.find_one()  # Ensure this is on a collection, not a database
     if user_data:
         return user_data.get("pm_search", False)
     return False
