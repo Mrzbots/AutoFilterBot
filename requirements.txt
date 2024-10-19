@@ -16,5 +16,5 @@ googletrans==3.1.0a0
 telegraph
 psutil
 aiohttp
-HorridAPI==1.0.35
+HorridAPI==1.0.41
 Mangandi 
